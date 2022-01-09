@@ -19,7 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="block.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="process.cpp" />
+    <ClCompile Include="standbyActive.cpp" />
     <ClCompile Include="unchangeOperation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="opt.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

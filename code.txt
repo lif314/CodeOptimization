@@ -1,0 +1,15 @@
+I:=1
+L: if I>10 goto E
+T1:=2*J
+T2:=10*I
+T3:=T2+T1
+T4:=addr(A)-11
+T5:=2*J
+T6:=10*I
+T7:=T6+T5
+T8:=addr(A)-11
+T9:=T8[T7]
+T4[T3]:=T9+1
+I:=I+1
+goto L
+E:
