@@ -30,9 +30,27 @@
     <ClCompile Include="standbyActive.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="strengthWeakening.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DAGraph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="out_lifting.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DAGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

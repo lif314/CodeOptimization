@@ -1,3 +1,6 @@
+#ifndef _opt_
+#define _opt_
+
 #include <string>
 #include <iostream>
 #include <vector>
@@ -13,15 +16,24 @@ struct Quaternary
     string arg1;	// 操作数1
     string arg2;	// 操作数2
     string res;	    // 结果
+    // 与四元式绑定的跳转标号 
+    string label;
 
     // 打印结构数据
     void print()
     {
-        cout << id << ": " << op  << " " << arg1 << " " << arg2 << " " << res << std::endl;
+        cout << id << ": " << op << " " << arg1 << " " << arg2 << " " << res << std::endl;
+    }
+    void Output()
+    {
+        cout << "  " << op << ' ' << arg1 << ' ' << arg2 << ' ' << res << endl;
     }
 };
-
-
+/*ostream& operator << (ostream& os, Quaternary& qua)
+{
+    os << qua.id << ": " << qua.op << " " << qua.arg1 << " " << qua.arg2 << " " << qua.res << std::endl;
+    return os;
+}*/
 
 /**
  * 待用信息和活跃信息的二元组
@@ -49,7 +61,7 @@ struct BasicBlockStandbyActiveTable
     void print()
     {
         cout << qua_id << ": "
-    		<< "(" << res.standby << "," << res.active << ")" << " "
+            << "(" << res.standby << "," << res.active << ")" << " "
             << "(" << arg1.standby << "," << arg1.active << ")" << " "
             << "(" << arg2.standby << "," << arg2.active << ")" << endl;
     }
@@ -68,4 +80,11 @@ struct BasicBlock
     // 基本块中循环不变运算的集合
     vector<int> unchangeOpList;
 
+    // 基本块中代码外提运算的集合
+    vector<int> out_liftedList;
+
 };
+//ostream& operator<<(ostream& os, BasicBlock& block)
+
+
+#endif // !_opt_

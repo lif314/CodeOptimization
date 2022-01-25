@@ -20,12 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="block.cpp" />
+    <ClCompile Include="DAGraph.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="out_lifting.cpp" />
     <ClCompile Include="process.cpp" />
     <ClCompile Include="standbyActive.cpp" />
+    <ClCompile Include="strengthWeakening.cpp" />
     <ClCompile Include="unchangeOperation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DAGraph.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="opt.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

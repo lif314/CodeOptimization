@@ -25,6 +25,10 @@ using namespace std;
  * basic_blocks: 基本块
  */
 
+//dch
+// 查找四元式所在基本块块号
+int findBasic(int qID, const vector<BasicBlock>& BB);
+
 // 寻找循环的基本块
 vector<BasicBlock> findLoop(vector<Quaternary> all_qua, vector<BasicBlock> & basic_blocks)
 {
@@ -37,11 +41,30 @@ vector<BasicBlock> findLoop(vector<Quaternary> all_qua, vector<BasicBlock> & bas
 		Quaternary end_qua = all_qua[basic_blocks[i].quaList.back()];
 
 		// 最后一个语句含有跳转，并跳到首句
-		if(end_qua.op.find("j") != end_qua.op.npos && (stoi(end_qua.res) + 1) == start_qua.id)
+		//if(end_qua.op.find("j") != end_qua.op.npos && (stoi(end_qua.res) + 1) == start_qua.id)
+		//{
+		//	// 标记该基本块是循环的基本块
+		//	basic_blocks[i].loop = true;
+		//}
+
+		///*
+		if (end_qua.op.find("j") != string::npos)
 		{
-			// 标记该基本块是循环的基本块
-			basic_blocks[i].loop = true;
+			int towardBB = findBasic(stoi(end_qua.res), basic_blocks);
+			cout << "测试: " << stoi(end_qua.res) << " " << towardBB << " " << i << endl;
+
+			if (towardBB < i) // 确定有循环
+			{
+				for (int temp = 0; temp < basic_blocks.size(); temp++)
+				{
+					if (basic_blocks[temp].block_id > towardBB && basic_blocks[temp].block_id <= i)
+					{
+						basic_blocks[temp].loop = true;
+					}
+				}
+			}
 		}
+		//*/
 	}
 
 	return basic_blocks;
